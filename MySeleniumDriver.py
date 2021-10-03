@@ -1,10 +1,11 @@
-import time
 from msedge.selenium_tools import Edge, EdgeOptions
+import os
 
 
 def LoadEdgeWithUserData():
+    UserName = os.getlogin()
     path = "edgedriver_win32\\msedgedriver.exe"
-    UserProfilePath = "C:\\Users\\Andres\\AppData\\Local\\Microsoft\\Edge\\User Data"
+    UserProfilePath = "C:\\Users\\{}\\AppData\\Local\\Microsoft\\Edge\\User Data".format(UserName)
     edge_options = EdgeOptions()
     edge_options.use_chromium = True
     edge_options.add_argument(UserProfilePath)

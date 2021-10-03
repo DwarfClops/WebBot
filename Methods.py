@@ -1,6 +1,6 @@
 class ListFunctions():
     def __init__(self):
-        pass
+        return None
 
     def ReadSearchList(self,):
         listSting = "SearchList.txt"

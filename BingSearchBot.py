@@ -39,10 +39,10 @@ class AutoBingSearch():
 
     def MainLoop(self):
         self.MainBingPage()
-        for i in self.searchList:
-            self.linkList.writelines(i+"\n")
+        for searchItem in self.searchList[1:]:
+            self.linkList.writelines(searchItem+"\n")
             time.sleep(2.5)
-            self.SearchPage(i)
+            self.SearchPage(searchItem)
             data = self.GrabLinks()
             ListFunctions().InputLinks(data,self.exception,self.linkList)
             time.sleep(2.5)
