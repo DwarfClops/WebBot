@@ -59,7 +59,7 @@ class PPG:
 
 #EX Returns most valuable pops
 if __name__ == "__main__":
-        A = PPG('Goku')
+        A = PPG('Naruto x Hello Kitty')
         data = A.InitRequest()
         popdata = ReadPopData(data)
         print(popdata)

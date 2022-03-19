@@ -3,8 +3,9 @@ import os
 
 
 def LoadEdgeWithUserData():
+    print(os.getcwd())
     UserName = os.getlogin()
-    path = "edgedriver_win32/msedgedriver.exe"
+    path = "D:\Programs\Python_Programs\WebBot\Project\Selenium\edgedriver_win32\msedgedriver.exe"
     UserProfilePath = "--user-data-dir=C:\\Users\\{}\\AppData\\Local\\Microsoft\\Edge\\User Data\\Default".format(UserName)
     print(UserProfilePath)
     edge_options = EdgeOptions()

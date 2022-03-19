@@ -2,15 +2,15 @@ from urllib import request
 
 def grab_Query_Hash_Script(script_tag):
     scripts = script_tag.split(",")
-    print(scripts)
-    print(scripts.__len__())
+    # print(scripts)
+    # print(scripts.__len__())
     for i in scripts:
         if ("TagPageContainer.js" in i):
-            print(i)
+            #print(i)
             pageContainer = i.split(":")[1]
             pageContainer = pageContainer.replace("\"", '')
             pageContainerUrl = "https://www.instagram.com" + pageContainer
-            print(pageContainerUrl)
+            #print(pageContainerUrl)
             container = pageContainerUrl
             break
     hashId = grab_Query_Hash(pageContainerUrl)

@@ -1,4 +1,5 @@
 from urllib import request
+from urllib.parse import urlencode
 from bs4 import BeautifulSoup
 
 def initialURL(hashtag):
@@ -20,3 +21,20 @@ def request_more_photos(hashId, hashtag, end_cursor, header):
     initreq = request.Request(requeststring,headers=header)
     req = request.urlopen(initreq)
     return req
+
+# for user profile https://www.instagram.com/graphql/query/?query_hash=8c2a529969ee035a5063f2fc8602a0fd&variables={"id":"689133468","first":12,"after":"QVFEaUl1dTQ4ZUc3TXZCRkEwYXFrWG9qRUFabWV4V3hrY2drTFJyY1p1NTktN2hvWktwNG1IX01xbW50SU04cHI3OUJSbzhROWpMSy1ZUXN5OHpaa2RRbw=="}
+def Request_User_Photos(queryhash,userId,end_cursor,header):
+    url = "https://www.instagram.com/graphql/query/?query_hash="+"8c2a529969ee035a5063f2fc8602a0fd"+"&variables={\"id\":\""+userId+"\",\"first\":12,\"after\":\""+end_cursor+"==\"}"
+    print(url)
+    req = request.Request(url,headers=header)
+    photos = request.urlopen(req)
+    return photos
+
+def ProfileUrl(profile):
+    query = {"utm_source":"ig_seo","utm_campaign":"profiles","utm_medium":""}
+    data = urlencode(query)
+    #https://www.instagram.com/aselcebloger/?utm_source=ig_seo&utm_campaign=profiles&utm_medium=
+    url = "https://www.instagram.com/"+profile+"/?"+data
+    print(url)
+    return url
+
